@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import ValidateForm from '../../helpers/validateform';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -20,8 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     //private toast: NgToastService,
-    //private auth: AuthService,
-    //private router: Router,
+    private auth: AuthService,
+    private router: Router,
     //private userStore: UserStoreService,
     //private resetPasswordService: ResetPasswordService
     ){
@@ -44,27 +45,20 @@ export class LoginComponent implements OnInit {
     this.isText ? (this.type = 'text') : (this.type = 'password');
   }
 
-  onSubmit() {
+  onLogin() {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
-      // this.auth.signIn(this.loginForm.value).subscribe({
-      //   next: (res) => {
-      //     console.log(res);
-      //     this.loginForm.reset();
-      //     this.router.navigate(['dashboard']);
-      //     this.toast.success({
-      //       detail: 'Success',
-      //       summary: 'Login Success',
-      //       duration: 5000,
-      //     });
-      //     this.auth.storeToken(res.accessToken!);
-      //     this.auth.storeRefreshToken(res.refreshToken!);
-      //     let decodedValue = this.auth.decodedToken();
-      //     this.userStore.storeFullName(decodedValue.name);
-      //     this.userStore.storeRole(decodedValue.role);
-
-      //   }
-      // });
+       this.auth.login(this.loginForm.value)
+       .subscribe({
+         next: (res) => {
+           console.log(res);
+           this.loginForm.reset();
+           this.router.navigate(['dashboard']);
+         },
+         error:(err) => {
+          console.log(err?.error.message)
+         }
+       });
     } else {
       // this.toast.error({
       //   detail: 'ERROR',

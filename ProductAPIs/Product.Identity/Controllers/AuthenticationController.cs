@@ -67,12 +67,7 @@ namespace Product.Identity.Controllers
                     };
 
                 await _userManager.AddToRoleAsync(user, DefaultRole);
-                return new ContentResult
-                {
-                    StatusCode = StatusCodes.Status201Created,
-                    Content = "User Created SuccessFully",
-                    ContentType = "text/plain"
-                };
+                return Ok();
             }
             else
                 return new ContentResult

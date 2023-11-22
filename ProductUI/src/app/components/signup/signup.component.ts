@@ -5,11 +5,13 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { Router, RouterModule } from '@angular/router';
 import ValidateForm from '../../helpers/validateform';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule,RouterModule,ReactiveFormsModule],
+  imports: [CommonModule,RouterModule,ReactiveFormsModule,HttpClientModule],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
@@ -22,7 +24,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb : FormBuilder,
     //private toast: NgToastService,
-    //private auth: AuthService,
+    private auth: AuthService,
     private router: Router
     ) { }
 
@@ -30,7 +32,7 @@ export class SignupComponent implements OnInit {
     this.signUpForm = this.fb.group({
       firstName:['', Validators.required],
       lastName:['', Validators.required],
-      userName:['', Validators.required],
+      username:['', Validators.required],
       email:['', Validators.required],
       password:['', Validators.required]
     })
@@ -51,19 +53,20 @@ export class SignupComponent implements OnInit {
       //   role:'',
       //   token:''
       // }
-      // this.auth.signUp(signUpObj)
-      // .subscribe({
-      //   next:(res=>{
-      //     console.log(res);
-      //     this.signUpForm.reset();
-      //     this.router.navigate(['login'])
+
+      this.auth.signUp(this.signUpForm.value)
+        .subscribe({
+          next:(res=>{
+            console.log(res);
+            this.signUpForm.reset();
+            this.router.navigate(['/login']);
       //     this.toast.success({detail:"Success",summary:'Registration Success',duration:5000});
-      //   }),
-      //   error:(err=>{
-      //     console.log(err)
+         }),
+         error:(err=>{
+           console.log(err)
       //     this.toast.error({detail:"ERROR",summary:err.error.message,duration:50000000});
-      //   })
-      // })
+         })
+       })
     } else {
       //this.toast.error({detail:"ERROR",summary:'Please fill all details',duration:5000});
       ValidateForm.validateAllFormFields(this.signUpForm); //{7}
