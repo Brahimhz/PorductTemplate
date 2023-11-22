@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Product.Persistence": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ADMIN_PASSWORD": "Password123+"
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Product.Persistence;
 
@@ -11,9 +12,11 @@ using Product.Persistence;
 namespace Product.Persistence.Migrations
 {
     [DbContext(typeof(ProductIdentityDbContext))]
-    partial class ProductIdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231122091602_SeedAdminUser")]
+    partial class SeedAdminUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

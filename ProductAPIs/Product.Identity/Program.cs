@@ -26,6 +26,20 @@ builder.Services.AddAuthentication(options =>
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 });
 
+builder.Services.AddCors(options =>
+{
+    var allowCors = configuration.GetSection("AllowCors").Value;
+    if (allowCors != null)
+        options.AddPolicy("MyCorsPolicy", builder =>
+        {
+            builder.WithOrigins(allowCors)
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
+
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -42,7 +56,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("MyCorsPolicy");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
