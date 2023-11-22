@@ -1,2 +1,7 @@
 <p>dashboard works!</p>
 <button (click) = "logout()">LogOut</button>
+
+
+<ul *ngFor="let product of products">
+ <li>{{product.name}}</li>
+</ul>
