@@ -1,10 +1,26 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Product.API.AppService.Contracts;
+using Product.API.AppService.Implementations;
+using Product.Core;
+using Product.Core.Data.IRepository;
+using Product.Persistence;
+using Product.Persistence.Repository;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 // Add services to the container.
+
+
+
+builder.Services.AddDbContext<ProductDbContext>(options =>
+           options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ProductCoreProgram).Assembly));
+
+
 
 
 //Authentification
@@ -44,6 +60,15 @@ builder.Services.AddCors(options =>
                    .AllowAnyMethod();
         });
 });
+
+builder.Services.AddTransient(typeof(IProductAppService), typeof(ProductAppService));
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

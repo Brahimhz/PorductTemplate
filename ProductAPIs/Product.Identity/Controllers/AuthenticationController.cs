@@ -151,7 +151,7 @@ namespace Product.Identity.Controllers
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = identity,
-                Expires = DateTime.Now.AddSeconds(10),
+                Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = credentials
             };
 

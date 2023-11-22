@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Product.Core.Models;
+using ProductEntity = Product.Core.Models;
 
 namespace Product.Persistence
 {
@@ -12,6 +13,9 @@ namespace Product.Persistence
         {
 
         }
+
+
+        public DbSet<ProductEntity.Product> Products { get; set; }
 
     }
 
