@@ -7,11 +7,12 @@ import ValidateForm from '../../helpers/validateform';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgToastModule, NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule,RouterModule,ReactiveFormsModule,HttpClientModule],
+  imports: [CommonModule,RouterModule,ReactiveFormsModule,HttpClientModule,NgToastModule],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
@@ -23,7 +24,7 @@ export class SignupComponent implements OnInit {
   eyeIcon:string = "fa-eye-slash"
   constructor(
     private fb : FormBuilder,
-    //private toast: NgToastService,
+    private toast: NgToastService,
     private auth: AuthService,
     private router: Router
     ) { }
@@ -60,15 +61,15 @@ export class SignupComponent implements OnInit {
             console.log(res);
             this.signUpForm.reset();
             this.router.navigate(['/login']);
-      //     this.toast.success({detail:"Success",summary:'Registration Success',duration:5000});
+            this.toast.success({detail:"Success",summary:'Registration Success',duration:5000});
          }),
          error:(err=>{
            console.log(err)
-      //     this.toast.error({detail:"ERROR",summary:err.error.message,duration:50000000});
+           this.toast.error({detail:"ERROR",summary:err.error.message,duration:5000});
          })
        })
     } else {
-      //this.toast.error({detail:"ERROR",summary:'Please fill all details',duration:5000});
+      this.toast.error({detail:"ERROR",summary:'Please fill all details',duration:5000});
       ValidateForm.validateAllFormFields(this.signUpForm); //{7}
     }
   }

@@ -2,8 +2,12 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Product.Core.Models;
 using Product.Identity.DTOs;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace Product.Identity.Controllers
 {
@@ -16,18 +20,23 @@ namespace Product.Identity.Controllers
         private readonly RoleManager<IdentityRole<Guid>> _roleManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IMapper _mapper;
+        private readonly IConfiguration _configuration;
+
+
         private const string DefaultRole = "User";
         public AuthenticationController(
             UserManager<User> userManager,
             RoleManager<IdentityRole<Guid>> roleManager,
             SignInManager<User> signInManager,
-            IMapper mapper
+            IMapper mapper,
+            IConfiguration configuration
             )
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
             _mapper = mapper;
+            _configuration = configuration;
         }
 
 
@@ -107,12 +116,47 @@ namespace Product.Identity.Controllers
                 }
 
                 if (result.Succeeded)
-                    return Ok(userDto);
+                {
+                    userDto.Roles = (await _userManager.GetRolesAsync(user)).ToList();
+
+                    var token = CreateToken(userDto);
+
+                    return Ok(new
+                    {
+                        Token = token,
+                        Mesage = "Login Success!"
+                    });
+                }
             }
 
             // Authentication failed
             return Unauthorized("Invalid username or password");
-
         }
+
+
+        private string CreateToken(UserDto user)
+        {
+            var jwtTokenHandler = new JwtSecurityTokenHandler();
+            var sercretKey = _configuration.GetSection("SecretKey").Value;
+            var key = Encoding.ASCII.GetBytes(sercretKey);
+            var identity = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Role, string.Concat(user.Roles)),
+                    new Claim(ClaimTypes.Email,user.Email),
+                    new Claim(ClaimTypes.Name, $"{user.UserName}")
+                });
+            var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
+
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = identity,
+                Expires = DateTime.Now.AddSeconds(10),
+                SigningCredentials = credentials
+            };
+
+            var token = jwtTokenHandler.CreateToken(tokenDescriptor);
+            return jwtTokenHandler.WriteToken(token);
+        }
+
     }
 }

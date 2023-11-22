@@ -33,7 +33,7 @@ namespace Product.Identity.Configurations
                 new Client
                 {
                     ClientId = "Product",
-                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     ClientSecrets = { new Secret("secret".Sha256()) },
                     AllowedScopes = { "ProductApi" },
                 },

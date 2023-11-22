@@ -6,12 +6,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import ValidateForm from '../../helpers/validateform';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
+import { NgToastModule, NgToastService } from 'ng-angular-popup';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule,RouterModule,ReactiveFormsModule,HttpClientModule],
+  imports: [CommonModule,RouterModule,ReactiveFormsModule,HttpClientModule,NgToastModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   constructor(
     private fb: FormBuilder,
-    //private toast: NgToastService,
+    private toast: NgToastService,
     private auth: AuthService,
     private router: Router,
     //private userStore: UserStoreService,
@@ -53,18 +54,22 @@ export class LoginComponent implements OnInit {
          next: (res) => {
            console.log(res);
            this.loginForm.reset();
+
+           this.toast.success({detail:"Success",summary:'Login Success',duration:5000});
+
            this.router.navigate(['dashboard']);
          },
          error:(err) => {
-          console.log(err?.error.message)
+          console.log(err?.error.message);
+          this.toast.error({detail:"ERROR",summary:err.error.message,duration:5000});
          }
        });
     } else {
-      // this.toast.error({
-      //   detail: 'ERROR',
-      //   summary: 'Please fill all details',
-      //   duration: 5000,
-      // });
+       this.toast.error({
+         detail: 'ERROR',
+         summary: 'Please fill all details',
+         duration: 5000,
+       });
       ValidateForm.validateAllFormFields(this.loginForm);
     }
   }
