@@ -5,10 +5,16 @@ D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Deb
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Product.Identity.runtimeconfig.json
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Product.Identity.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Product.Identity.pdb
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\AutoMapper.dll
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Azure.Core.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Azure.Identity.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Humanizer.dll
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\IdentityModel.dll
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\IdentityServer4.dll
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\IdentityServer4.Storage.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -36,6 +42,7 @@ D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Deb
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Newtonsoft.Json.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -85,5 +92,3 @@ D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\obj\Deb
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\obj\Debug\net7.0\Product.Identity.pdb
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\obj\Debug\net7.0\Product.Identity.genruntimeconfig.cache
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\obj\Debug\net7.0\ref\Product.Identity.dll
-D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\AutoMapper.dll
-D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Identity\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

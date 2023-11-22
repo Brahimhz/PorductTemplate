@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Product.Core.Models;
+using Product.Identity.Configurations;
 using Product.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,9 +15,20 @@ builder.Services.AddDbContext<ProductIdentityDbContext>
     (option => option.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 //Identity
+
+builder.Services.AddIdentityServer()
+            .AddDeveloperSigningCredential()
+            .AddInMemoryApiResources(Config.ApiResources)
+            .AddInMemoryApiScopes(Config.ApiScopes)
+            .AddInMemoryClients(Config.Clients)
+            .AddInMemoryIdentityResources(Config.IdentityResources)
+            ;
+
 builder.Services.AddIdentity<User, IdentityRole<Guid>>()
     .AddEntityFrameworkStores<ProductIdentityDbContext>()
     .AddDefaultTokenProviders();
+
+
 
 //Authentification
 builder.Services.AddAuthentication(options =>
@@ -24,6 +36,10 @@ builder.Services.AddAuthentication(options =>
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer("Bearer", options =>
+{
+    options.Authority = "https://localhost:7111";
 });
 
 builder.Services.AddCors(options =>
@@ -55,11 +71,19 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseRouting();
+
 app.UseCors("MyCorsPolicy");
 
 app.UseAuthentication();
+
+app.UseHttpsRedirection();
+
+
 app.UseAuthorization();
+
+app.UseIdentityServer();
+
 
 app.MapControllers();
 
