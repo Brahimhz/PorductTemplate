@@ -144,7 +144,7 @@ namespace Product.Identity.Controllers
                 {
                     new Claim(ClaimTypes.Role, string.Concat(user.Roles)),
                     new Claim(ClaimTypes.Email,user.Email),
-                    new Claim(ClaimTypes.Name, $"{user.UserName}")
+                    new Claim(ClaimTypes.Name, user.FirstName + "."+ user.LastName)
                 });
             var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
 
