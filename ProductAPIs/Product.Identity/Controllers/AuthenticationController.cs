@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -157,6 +158,21 @@ namespace Product.Identity.Controllers
             var token = jwtTokenHandler.CreateToken(tokenDescriptor);
             return jwtTokenHandler.WriteToken(token);
         }
+
+
+
+
+        [HttpGet("Public")]
+        public IActionResult Public() => Ok("Public");
+
+        [HttpGet("Private")]
+        [Authorize]
+        public IActionResult Private() => Ok("Private");
+
+
+        [HttpGet("Admin")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult Admin() => Ok("Admin");
 
     }
 }

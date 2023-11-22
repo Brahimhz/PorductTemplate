@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,4 +11,10 @@ import { CommonModule } from '@angular/common';
 })
 export class DashboardComponent {
 
+
+  constructor(private auth:AuthService){}
+
+  logout(){
+    this.auth.signOut();
+  }
 }

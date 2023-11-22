@@ -31,3 +31,10 @@ D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\ne
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.pdb
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.genruntimeconfig.cache
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\ref\Product.API.dll
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
