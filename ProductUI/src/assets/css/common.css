@@ -130,3 +130,8 @@ transition: all 0.1s ease-in-out
 .toast-right-top {
   height: auto !important;
 }
+
+
+.hide-modal {
+  display: none;
+}

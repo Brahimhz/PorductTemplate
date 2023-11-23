@@ -12,11 +12,13 @@ namespace Product.API.AppService.Implementations
     {
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
+        private readonly ILogger<ProductAppService> _logger;
 
-        public ProductAppService(IMapper mapper, IMediator mediator)
+        public ProductAppService(IMapper mapper, IMediator mediator, ILogger<ProductAppService> logger)
         {
             _mapper = mapper;
             _mediator = mediator;
+            _logger = logger;
         }
 
         public async Task<ProductOutPut> GetById(Guid id)
@@ -29,16 +31,45 @@ namespace Product.API.AppService.Implementations
 
         public async Task<ProductOutPut> Add(ProductInPut entityResource)
         {
-            var entity = _mapper.Map<ProductInPut, ProductEntity.Product>(entityResource);
+            ProductEntity.Product entity = new();
+            try
+            {
+                entity = _mapper.Map<ProductInPut, ProductEntity.Product>(entityResource);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("Error During the mapping :" + e.Message);
+                return null;
+            }
 
             entity.CreationDate = DateTime.Now;
             entity.LastUpdateDate = DateTime.Now;
 
-            await _mediator.Send(new AddProductCommand(entity));
 
-            await _mediator.Send(new UnitOfWorkCommand());
+            try
+            {
+                await _mediator.Send(new AddProductCommand(entity));
 
-            return _mapper.Map<ProductEntity.Product, ProductOutPut>(entity);
+                await _mediator.Send(new UnitOfWorkCommand());
+
+                try
+                {
+                    return _mapper.Map<ProductEntity.Product, ProductOutPut>(entity);
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError("Error During the mapping :" + e.Message);
+                    return null;
+                }
+
+            }
+            catch (Exception e)
+            {
+                // Add Product failed
+                _logger.LogError("Add Product proccess Error :" + e.Message);
+                return null;
+            }
+
         }
 
         public async Task<ProductOutPut> Modify(Guid id, ProductInPut entity)
@@ -65,14 +96,24 @@ namespace Product.API.AppService.Implementations
 
         public async Task<Guid?> Delete(Guid id)
         {
-            var deleteEntity = await _mediator.Send(new GetProductByPropQuery(e => e.Id == id));
+            try
+            {
+                var deleteEntity = await _mediator.Send(new GetProductByPropQuery(e => e.Id == id));
 
-            if (deleteEntity == null)
+                if (deleteEntity == null)
+                    return null;
+
+                await _mediator.Send(new DeleteProductCommand(deleteEntity));
+                await _mediator.Send(new UnitOfWorkCommand());
+                return id;
+            }
+            catch (Exception e)
+            {
+                // Add Product failed
+                _logger.LogError("Delete Product proccess Error :" + e.Message);
                 return null;
+            }
 
-            await _mediator.Send(new DeleteProductCommand(deleteEntity));
-            await _mediator.Send(new UnitOfWorkCommand());
-            return id;
         }
     }
 }

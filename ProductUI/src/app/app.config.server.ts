@@ -6,12 +6,7 @@ import { tokenInterceptor } from './interceptors/token.interceptor';
 
 const serverConfig: ApplicationConfig = {
   providers: [
-    provideServerRendering(),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useValue: tokenInterceptor,
-      multi: true,
-    }
+    provideServerRendering()
   ]
 };
 

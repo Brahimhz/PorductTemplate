@@ -40,9 +40,54 @@
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <h1 class="h2">Dashboard</h1>
               <div class="btn-toolbar mb-2 mb-md-0">
-                <button type="button" class="btn btn-sm btn-outline-primary">
-                  <span class="fa fa-plus p-2"></span> Add
-                </button>
+
+                <div class="container mt-4">
+                  <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#addModal">
+                    <span class="fa fa-plus p-2"></span> Add
+                  </button>
+
+                  <!-- Modal -->
+                  <div id="addModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="AddModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="AddModalLabel">Add Product</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- Your Form Goes Here -->
+                          <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
+                            <div class="form-group mt-3">
+                              <label for="name">Name</label>
+                              <input type="text" class="form-control mt-1" id="name" formControlName="name" style="border: 1px solid #007bff; padding: 0.375rem;">
+                            </div>
+                            <div class="form-group mt-3">
+                              <label for="category">Category</label>
+                              <select class="form-control mt-1" id="category" formControlName="category">
+                                <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+                              </select>
+                            </div>
+                            <div class="form-group mt-3">
+                              <label for="amount">Amount</label>
+                              <input type="number" class="form-control mt-1" id="amount" formControlName="amount">
+                            </div>
+                            <div class="form-check mt-3">
+                              <input type="checkbox" class="form-check-input" id="isActive" formControlName="isActive">
+                              <label class="form-check-label ml-1" for="isActive">Is Active</label>
+                            </div>
+                            <div class="d-flex justify-content-end mt-3">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-primary" >Add</button>
+                            </div>
+
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
           </div>
 
@@ -78,11 +123,16 @@
 
                           <td>{{product.creationDate | date:'yyyy-MM-dd HH:mm'}}</td>
                           <td>{{product.lastUpdateDate | date:'yyyy-MM-dd HH:mm'}}</td>
+
+                          <td class="d-flex justify-content-center"><button type=button class="btn btn-danger mt-1"  (click)="onDelete(product)">Delete me</button></td>
+
+
                       </tr>
 
                   </tbody>
               </table>
           </div>
+
       </main>
   </div>
 </div>

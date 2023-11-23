@@ -7,11 +7,6 @@ import { HTTP_INTERCEPTORS, provideHttpClient, withFetch } from '@angular/common
 import { tokenInterceptor } from './interceptors/token.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(),provideHttpClient(),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useValue: tokenInterceptor,
-      multi: true,
-    }
+  providers: [provideRouter(routes), provideClientHydration(),provideHttpClient()
 ]
 };

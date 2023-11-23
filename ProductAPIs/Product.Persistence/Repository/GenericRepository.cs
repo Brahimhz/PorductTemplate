@@ -45,6 +45,7 @@ namespace Product.Persistence.Repository
         public async Task InsertAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
 
         public async Task InsertRangeAsync(IEnumerable<T> entities)

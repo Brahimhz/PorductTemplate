@@ -12,11 +12,14 @@ namespace Product.API.Controllers
     {
 
         private readonly IProductAppService _appService;
+        private readonly ILogger<ProductController> _logger;
 
         public ProductController(
-            IProductAppService appService)
+            IProductAppService appService,
+            ILogger<ProductController> logger)
         {
             _appService = appService;
+            _logger = logger;
         }
 
         [HttpPost(Name = "CreateProduct")]
@@ -24,7 +27,10 @@ namespace Product.API.Controllers
         public async Task<IActionResult> CreateProduct([FromBody] ProductInPut input)
         {
             if (!ModelState.IsValid)
+            {
+                _logger.LogError("Validation Product Model input Error.");
                 return BadRequest("Invalid Product data");
+            }
 
             var result = await _appService.Add(input);
             if (result is null) return BadRequest();
@@ -36,7 +42,10 @@ namespace Product.API.Controllers
         public async Task<IActionResult> ModifyProduct(Guid id, [FromBody] ProductInPut input)
         {
             if (!ModelState.IsValid)
+            {
+                _logger.LogError("Validation Product Model input Error.");
                 return BadRequest("Invalid Product data");
+            }
 
             var result = await _appService.Modify(id, input);
             if (result is null) return BadRequest();
@@ -67,6 +76,15 @@ namespace Product.API.Controllers
             var result = await _appService.GetAll();
             if (result is null) return BadRequest();
             return Ok(result);
+        }
+
+
+        [HttpGet("Categories", Name = "GetCategories")]
+        [Authorize]
+        public async Task<IActionResult> GetCategories()
+        {
+            var categories = new List<string> { "Category 1", "Category 2", "Category 3", "Category 4", "Category 5", "Category 6" };
+            return Ok(categories);
         }
 
 
