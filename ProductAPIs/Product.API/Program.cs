@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Product.API.AppService.Contracts;
 using Product.API.AppService.Implementations;
 using Product.Core;
+using Product.Core.Configuration;
 using Product.Core.Data.IRepository;
 using Product.Persistence;
 using Product.Persistence.Repository;
@@ -21,6 +22,7 @@ builder.Services.AddDbContext<ProductDbContext>(options =>
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ProductCoreProgram).Assembly));
 
 
+builder.Services.Configure<StoredProducerTitles>(configuration.GetSection("StoredProducerTitles"));
 
 
 //Authentification
@@ -62,7 +64,9 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddTransient(typeof(IProductAppService), typeof(ProductAppService));
+builder.Services.AddTransient<ISpProductAppService, SpProductAppService>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<ISpProductRepository, SpProductRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
