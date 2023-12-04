@@ -16,7 +16,7 @@ namespace Product.Persistence.Repository
             _dbSet = context.Set<T>();
         }
 
-        public async Task<T?> GetByPropAsync(Expression<Func<T, bool>>? condition)
+        public virtual async Task<T?> GetByPropAsync(Expression<Func<T, bool>>? condition)
         {
             return
                 condition is not null
@@ -24,17 +24,17 @@ namespace Product.Persistence.Repository
                 : await _dbSet.FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<T?> FindAsync(Expression<Func<T, bool>> predicate)
+        public virtual async Task<T?> FindAsync(Expression<Func<T, bool>> predicate)
         {
             return await _dbSet.FirstOrDefaultAsync(predicate);
         }
 
-        public async Task<IEnumerable<T>> WhereAsync(Expression<Func<T, bool>>? predicate)
+        public virtual async Task<IEnumerable<T>> WhereAsync(Expression<Func<T, bool>>? predicate)
         {
             return
                 predicate is not null
@@ -42,24 +42,24 @@ namespace Product.Persistence.Repository
                 : await _dbSet.ToListAsync();
         }
 
-        public async Task InsertAsync(T entity)
+        public virtual async Task InsertAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task InsertRangeAsync(IEnumerable<T> entities)
+        public virtual async Task InsertRangeAsync(IEnumerable<T> entities)
         {
             await _dbSet.AddRangeAsync(entities);
             _context.SaveChanges();
         }
 
-        public void Update(T entity)
+        public virtual void Update(T entity)
         {
             _dbSet.Update(entity);
         }
 
-        public async Task Remove(Guid id)
+        public virtual async Task Remove(Guid id)
         {
             var entity = await GetByPropAsync(e => e.Id == id);
             if (entity != null)

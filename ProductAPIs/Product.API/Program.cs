@@ -23,6 +23,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Produ
 
 
 builder.Services.Configure<StoredProducerTitles>(configuration.GetSection("StoredProducerTitles"));
+builder.Services.Configure<GenericStoredProducerTitles>(configuration.GetSection("GenericStoredProducerTitles"));
 
 
 //Authentification
@@ -64,8 +65,10 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddTransient(typeof(IProductAppService), typeof(ProductAppService));
+builder.Services.AddTransient(typeof(IGenericSpAppService<,,,,>), typeof(GenericSpAppService<,,,,>));
 builder.Services.AddTransient<ISpProductAppService, SpProductAppService>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(IGenericSpRepository<,>), typeof(GenericSpRepository<,>));
 builder.Services.AddScoped<ISpProductRepository, SpProductRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

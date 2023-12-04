@@ -9,8 +9,6 @@ namespace Product.Persistence.Repository
 {
     public class SpProductRepository : ISpProductRepository
     {
-
-
         private readonly DbSet<ProductE.Product> _dbSet;
         private readonly ProductDbContext _context;
         private readonly StoredProducerTitles _storedProducer;
@@ -41,12 +39,10 @@ namespace Product.Persistence.Repository
                     new SqlParameter("@ProductId", id))
                 .ToListAsync();
 
-            if (result is null) return null;
-            if (!result.Any()) return null;
+            if (result is null || !result.Any()) return null;
 
             return result.FirstOrDefault();
         }
-
         public async Task<List<ProductE.Product>> GetAllAsync()
         {
             if (
@@ -59,7 +55,6 @@ namespace Product.Persistence.Repository
             var result = await _dbSet.FromSqlRaw(_storedProducer.GetAllRecords).ToListAsync();
             return result;
         }
-
         public async Task<int> InsertAsync(ProductE.Product entity)
         {
             if (
@@ -79,9 +74,6 @@ namespace Product.Persistence.Repository
                     new SqlParameter("@IsActive", entity.isActive)
                 );
         }
-
-
-
         public async Task<int> UpdateAsync(Guid id, ProductE.Product entity)
         {
             if (
@@ -101,11 +93,6 @@ namespace Product.Persistence.Repository
                     new SqlParameter("@NewIsActive", entity.isActive)
                 );
         }
-
-
-
-
-
         public async Task<int> RemoveAsync(Guid id)
         {
             if (
@@ -121,9 +108,6 @@ namespace Product.Persistence.Repository
                     new SqlParameter("@ProductId", id)
                 );
         }
-
-
-
         private bool StoredProcedureExists(string storedProcedureName)
         {
             var sql = $"SELECT COUNT(*) FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_TYPE = 'PROCEDURE' AND ROUTINE_NAME = '{storedProcedureName}'";

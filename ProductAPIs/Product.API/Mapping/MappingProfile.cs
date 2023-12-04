@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Product.API.AppService.Dtos.Product;
+using Product.Core.Models;
 using ProductEntity = Product.Core.Models;
 
 namespace Product.API.Mapping
@@ -11,6 +12,7 @@ namespace Product.API.Mapping
             CreateMap<ProductEntity.Product, ProductOutPut>();
             CreateMap<ProductEntity.Product, ProductOutPutList>();
             CreateMap<ProductInPut, ProductEntity.Product>();
+            CreateMap<ProductInPut, ProductInsert>();
         }
     }
 }
