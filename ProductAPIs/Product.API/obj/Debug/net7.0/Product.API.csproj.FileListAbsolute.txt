@@ -1,10 +1,3 @@
-D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.csproj.AssemblyReference.cache
-D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.GeneratedMSBuildEditorConfig.editorconfig
-D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.AssemblyInfoInputs.cache
-D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.AssemblyInfo.cs
-D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.csproj.CoreCompileInputs.cache
-D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.MvcApplicationPartsAssemblyInfo.cs
-D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.MvcApplicationPartsAssemblyInfo.cache
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\net7.0\appsettings.Development.json
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\net7.0\appsettings.json
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\net7.0\Product.API.exe
@@ -76,6 +69,13 @@ D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\ne
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\net7.0\Product.Persistence.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\net7.0\Product.Persistence.pdb
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\bin\Debug\net7.0\Product.Core.pdb
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.csproj.AssemblyReference.cache
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.AssemblyInfoInputs.cache
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.AssemblyInfo.cs
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.csproj.CoreCompileInputs.cache
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\Product.API.MvcApplicationPartsAssemblyInfo.cache
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\staticwebassets\msbuild.Product.API.Microsoft.AspNetCore.StaticWebAssets.props
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\staticwebassets\msbuild.build.Product.API.props
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Product.API.props

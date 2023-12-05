@@ -12,6 +12,7 @@ namespace Product.Core.Models
         public string Category { get; set; }
         public decimal Amount { get; set; }
         public bool isActive { get; set; }
+        public Guid OwnerId { get; set; }
     }
 
     public class ProductInsert

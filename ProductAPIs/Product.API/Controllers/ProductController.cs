@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Product.API.AppService.Contracts;
 using Product.API.AppService.Dtos.Product;
@@ -23,7 +24,9 @@ namespace Product.API.Controllers
         }
 
         [HttpPost(Name = "CreateProduct")]
-        [Authorize]
+        [Authorize(Policy = "StoreOwner")]
+        [Authorize(Policy = "StoreOwnerRole")]
+        [EnableCors("MyCorsPolicy")]
         public async Task<IActionResult> CreateProduct([FromBody] ProductInPut input)
         {
             if (!ModelState.IsValid)

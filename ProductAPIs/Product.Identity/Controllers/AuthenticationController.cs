@@ -23,6 +23,8 @@ namespace Product.Identity.Controllers
         private readonly IConfiguration _configuration;
         private readonly ILogger<AuthenticationController> _logger;
         private const string DefaultRole = "User";
+        private const string StoreOwnerRole = "StoreOwner";
+        private const string SimpleUserRole = "SimpleUser";
         public AuthenticationController(
             UserManager<User> userManager,
             RoleManager<IdentityRole<Guid>> roleManager,
@@ -196,7 +198,8 @@ namespace Product.Identity.Controllers
                     {
                     new Claim(ClaimTypes.Role, string.Concat(user.Roles)),
                     new Claim(ClaimTypes.Email,user.Email),
-                    new Claim(ClaimTypes.Name, user.FirstName + "."+ user.LastName)
+                    new Claim(ClaimTypes.Name, user.FirstName + "."+ user.LastName),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
                     });
                 var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
 

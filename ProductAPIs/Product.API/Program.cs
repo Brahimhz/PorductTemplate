@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Product.API.AppService.Contracts;
 using Product.API.AppService.Implementations;
+using Product.API.Extentions;
 using Product.Core;
 using Product.Core.Configuration;
 using Product.Core.Data.IRepository;
@@ -51,6 +53,14 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("StoreOwner", policy => policy.Requirements.Add(new StoreOwnerRequirement()));
+    options.AddPolicy("StoreOwnerRole", policy => policy.RequireRole("StoreOwner"));
+});
+
+builder.Services.AddSingleton<IAuthorizationHandler, StoreOwnerHandler>();
+
 
 builder.Services.AddCors(options =>
 {
@@ -58,9 +68,7 @@ builder.Services.AddCors(options =>
     if (allowCors != null)
         options.AddPolicy("MyCorsPolicy", builder =>
         {
-            builder.WithOrigins(allowCors)
-                   .AllowAnyHeader()
-                   .AllowAnyMethod();
+            builder.WithOrigins(allowCors);
         });
 });
 

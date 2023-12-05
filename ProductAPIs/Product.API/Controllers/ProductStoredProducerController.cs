@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Product.API.AppService.Contracts;
 using Product.API.AppService.Dtos.Product;
 using Product.Core.Models;
@@ -9,6 +10,7 @@ namespace Product.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyCorsPolicy")]
     public class ProductStoredProducerController : ControllerBase
     {
         private readonly ISpProductAppService _appService;
@@ -55,6 +57,7 @@ namespace Product.API.Controllers
 
 
         [HttpPost("InsertProduct")]
+
         public async Task<IActionResult> InsertProduct([FromBody] ProductInPut input)
         {
             if (!ModelState.IsValid)
