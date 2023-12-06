@@ -8,7 +8,7 @@
         public string Name { get; set; }
         public string Category { get; set; }
         public decimal Amount { get; set; }
-        public bool isActive { get; set; }
+        public bool IsActive { get; set; }
         public Guid OwnerId { get; set; }
     }
 }
