@@ -1,9 +1,10 @@
+using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Product.API.AppService.Contracts;
 using Product.API.AppService.Dtos.Product;
-using Product.API.Controllers;
+using Controllers = Product.API.Controllers;
 
 namespace Product.Test.API
 {
@@ -14,7 +15,7 @@ namespace Product.Test.API
         {
             // Arrange
             var mockAppService = new Mock<IProductAppService>();
-            var mockLogger = new Mock<ILogger<ProductController>>();
+            var mockLogger = new Mock<ILogger<Controllers.ProductController>>();
 
             var ownerId = Guid.NewGuid();
 
@@ -42,7 +43,7 @@ namespace Product.Test.API
                 );
 
 
-            var controller = new ProductController(mockAppService.Object, mockLogger.Object);
+            var controller = new Controllers.ProductController(mockAppService.Object, mockLogger.Object);
 
 
             // Act
@@ -59,9 +60,9 @@ namespace Product.Test.API
         {
             // Arrange
             var mockAppService = new Mock<IProductAppService>();
-            var mockLogger = new Mock<ILogger<ProductController>>();
+            var mockLogger = new Mock<ILogger<Controllers.ProductController>>();
 
-            var controller = new ProductController(mockAppService.Object, mockLogger.Object);
+            var controller = new Controllers.ProductController(mockAppService.Object, mockLogger.Object);
 
 
             var productId = Guid.NewGuid();
@@ -103,7 +104,7 @@ namespace Product.Test.API
         {
             // Arrange
             var mockAppService = new Mock<IProductAppService>();
-            var mockLogger = new Mock<ILogger<ProductController>>();
+            var mockLogger = new Mock<ILogger<Controllers.ProductController>>();
 
             var productId = Guid.NewGuid();
 
@@ -111,7 +112,7 @@ namespace Product.Test.API
                 .Setup(x => x.Delete(productId))
                 .ReturnsAsync(productId);
 
-            var controller = new ProductController(mockAppService.Object, mockLogger.Object);
+            var controller = new Controllers.ProductController(mockAppService.Object, mockLogger.Object);
 
             // Act
             var result = await controller.DeleteProduct(productId);
@@ -126,7 +127,7 @@ namespace Product.Test.API
         {
             // Arrange
             var mockAppService = new Mock<IProductAppService>();
-            var mockLogger = new Mock<ILogger<ProductController>>();
+            var mockLogger = new Mock<ILogger<Controllers.ProductController>>();
 
             var productId = Guid.NewGuid();
 
@@ -141,7 +142,7 @@ namespace Product.Test.API
                     OwnerId = new Guid()
                 });
 
-            var controller = new ProductController(mockAppService.Object, mockLogger.Object);
+            var controller = new Controllers.ProductController(mockAppService.Object, mockLogger.Object);
 
 
             // Act
@@ -156,7 +157,7 @@ namespace Product.Test.API
         {
             // Arrange
             var mockAppService = new Mock<IProductAppService>();
-            var mockLogger = new Mock<ILogger<ProductController>>();
+            var mockLogger = new Mock<ILogger<Controllers.ProductController>>();
 
             var list = new List<ProductOutPutList>
             {
@@ -175,7 +176,7 @@ namespace Product.Test.API
                 .Setup(x => x.GetAll())
                 .ReturnsAsync(list);
 
-            var controller = new ProductController(mockAppService.Object, mockLogger.Object);
+            var controller = new Controllers.ProductController(mockAppService.Object, mockLogger.Object);
 
             // Act
             var result = await controller.GetProducts();
@@ -185,16 +186,16 @@ namespace Product.Test.API
         }
 
         [Fact]
-        public async Task GetCategories_ReturnsOkResultWithCategories()
+        public void GetCategories_ReturnsOkResultWithCategories()
         {
             // Arrange
             var mockAppService = new Mock<IProductAppService>();
-            var mockLogger = new Mock<ILogger<ProductController>>();
+            var mockLogger = new Mock<ILogger<Controllers.ProductController>>();
 
-            var controller = new ProductController(mockAppService.Object, mockLogger.Object);
+            var controller = new Controllers.ProductController(mockAppService.Object, mockLogger.Object);
 
             // Act
-            var result = await controller.GetCategories();
+            var result = controller.GetCategories();
 
             // Assert
             var okObjectResult = Assert.IsType<OkObjectResult>(result);

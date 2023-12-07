@@ -3861,23 +3861,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hp\\.nuget\\packages\\": {},
+    "C:\\Users\\Xische\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\PorductTemplate\\PorductTemplate\\ProductAPIs\\Product.Identity\\Product.Identity.csproj",
+      "projectUniqueName": "D:\\Github Repos\\PorductTemplate\\ProductAPIs\\Product.Identity\\Product.Identity.csproj",
       "projectName": "Product.Identity",
-      "projectPath": "D:\\Projects\\PorductTemplate\\PorductTemplate\\ProductAPIs\\Product.Identity\\Product.Identity.csproj",
-      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\PorductTemplate\\PorductTemplate\\ProductAPIs\\Product.Identity\\obj\\",
+      "projectPath": "D:\\Github Repos\\PorductTemplate\\ProductAPIs\\Product.Identity\\Product.Identity.csproj",
+      "packagesPath": "C:\\Users\\Xische\\.nuget\\packages\\",
+      "outputPath": "D:\\Github Repos\\PorductTemplate\\ProductAPIs\\Product.Identity\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Xische\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3892,11 +3892,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Projects\\PorductTemplate\\PorductTemplate\\ProductAPIs\\Product.Core\\Product.Core.csproj": {
-              "projectPath": "D:\\Projects\\PorductTemplate\\PorductTemplate\\ProductAPIs\\Product.Core\\Product.Core.csproj"
+            "D:\\Github Repos\\PorductTemplate\\ProductAPIs\\Product.Core\\Product.Core.csproj": {
+              "projectPath": "D:\\Github Repos\\PorductTemplate\\ProductAPIs\\Product.Core\\Product.Core.csproj"
             },
-            "D:\\Projects\\PorductTemplate\\PorductTemplate\\ProductAPIs\\Product.Persistence\\Product.Persistence.csproj": {
-              "projectPath": "D:\\Projects\\PorductTemplate\\PorductTemplate\\ProductAPIs\\Product.Persistence\\Product.Persistence.csproj"
+            "D:\\Github Repos\\PorductTemplate\\ProductAPIs\\Product.Persistence\\Product.Persistence.csproj": {
+              "projectPath": "D:\\Github Repos\\PorductTemplate\\ProductAPIs\\Product.Persistence\\Product.Persistence.csproj"
             }
           }
         }
@@ -3961,7 +3961,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

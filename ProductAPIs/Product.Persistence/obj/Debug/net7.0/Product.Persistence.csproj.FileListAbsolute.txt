@@ -15,3 +15,21 @@ D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Persistence\obj\
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\Product.Persistence.pdb
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\Product.Persistence.genruntimeconfig.cache
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\ref\Product.Persistence.dll
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\bin\Debug\net7.0\Product.Persistence.deps.json
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\bin\Debug\net7.0\Product.Persistence.runtimeconfig.json
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\bin\Debug\net7.0\Product.Persistence.dll
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\bin\Debug\net7.0\Product.Persistence.pdb
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\bin\Debug\net7.0\Product.Core.dll
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\bin\Debug\net7.0\Product.Core.pdb
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\Product.Persistence.csproj.AssemblyReference.cache
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\Product.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\Product.Persistence.AssemblyInfoInputs.cache
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\Product.Persistence.AssemblyInfo.cs
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\Product.Persistence.csproj.CoreCompileInputs.cache
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\Product.Persistence.sourcelink.json
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\Product.Persistence.csproj.CopyComplete
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\Product.Persistence.dll
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\refint\Product.Persistence.dll
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\Product.Persistence.pdb
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\Product.Persistence.genruntimeconfig.cache
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Persistence\obj\Debug\net7.0\ref\Product.Persistence.dll

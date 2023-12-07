@@ -29,7 +29,7 @@ namespace Product.API.AppService.Implementations
                 ((List<ProductEntity.Product>)
                 await _mediator.Send(new GetProductListQuery(null)));
 
-        public async Task<ProductOutPut> Add(ProductInPut entityResource)
+        public async Task<ProductOutPut?> Add(ProductInPut entityResource)
         {
             ProductEntity.Product entity = new();
             try

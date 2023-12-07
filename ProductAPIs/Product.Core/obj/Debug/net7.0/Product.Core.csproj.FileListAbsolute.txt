@@ -10,3 +10,16 @@ D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\n
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\net7.0\refint\Product.Core.dll
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\net7.0\Product.Core.pdb
 D:\Projects\PorductTemplate\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\net7.0\ref\Product.Core.dll
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Core\bin\Debug\net7.0\Product.Core.deps.json
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Core\bin\Debug\net7.0\Product.Core.dll
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Core\bin\Debug\net7.0\Product.Core.pdb
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\net7.0\Product.Core.csproj.AssemblyReference.cache
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\net7.0\Product.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\net7.0\Product.Core.AssemblyInfoInputs.cache
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\net7.0\Product.Core.AssemblyInfo.cs
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\net7.0\Product.Core.csproj.CoreCompileInputs.cache
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\net7.0\Product.Core.sourcelink.json
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\net7.0\Product.Core.dll
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\net7.0\refint\Product.Core.dll
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\net7.0\Product.Core.pdb
+D:\Github Repos\PorductTemplate\ProductAPIs\Product.Core\obj\Debug\net7.0\ref\Product.Core.dll

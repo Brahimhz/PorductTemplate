@@ -7,7 +7,7 @@ namespace Product.API.AppService.Contracts
         Task<ProductOutPut> GetById(Guid id);
         Task<List<ProductOutPutList>> GetAll();
 
-        Task<ProductOutPut> Add(ProductInPut input);
+        Task<ProductOutPut?> Add(ProductInPut input);
         Task<ProductOutPut> Modify(Guid id, ProductInPut input);
         Task<Guid?> Delete(Guid id);
     }

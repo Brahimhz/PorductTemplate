@@ -36,7 +36,11 @@ namespace Product.API.Controllers
             }
 
             var result = await _appService.Add(input);
-            if (result is null) return BadRequest();
+            if (result is null)
+            {
+                _logger.LogError("Creation Product Model Error.");
+                return BadRequest();
+            }
             else return Ok(result);
         }
 
@@ -84,7 +88,7 @@ namespace Product.API.Controllers
 
         [HttpGet("Categories", Name = "GetCategories")]
         [Authorize]
-        public async Task<IActionResult> GetCategories()
+        public IActionResult GetCategories()
         {
             var categories = new List<string> { "Category 1", "Category 2", "Category 3", "Category 4", "Category 5", "Category 6" };
             return Ok(categories);
